@@ -1,0 +1,26 @@
+language: node_js
+
+node_js: stable
+
+install:
+  - npm install
+
+before_script:
+  - git clone git@github.com:fluid-dev/hexo-theme-fluid.git themes/fluid
+
+script:
+  - hexo clean
+  - hexo generate
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name ${GH_NAME}
+  - git config user.email ${GH_MAIL}
+  - git add .
+  - git commit -m "Deploy blog pages"
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/${GH_NAME}/${GH_NAME}.io" master:master
+
+branches:
+  only:
+    - master
