@@ -24,6 +24,7 @@ script:
   - hexo generate
 
 after_script:
+  - cp CNAME public/CNAME
   - cd ./public
   - git init
   - git config user.name ${GH_NAME}
