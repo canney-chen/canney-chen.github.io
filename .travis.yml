@@ -16,7 +16,7 @@ install:
 
 before_script:
   #- git clone https://github.com/fluid-dev/hexo-theme-fluid.git themes/fluid
-  - git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
+  - git clone --branch v5.1.4 https://github.com/iissnan/hexo-theme-next themes/next
   - cp _config.theme.yml themes/next/_config.yml
 
 script:
